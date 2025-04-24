@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Respond from './pages/Respond';
+import Generate from './pages/Generate';
 import Menu from './Menu'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Menu />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/Respond' element={<Respond />} />
+        <Route path='/Generate' element={<Generate />} />
       </Routes>
     </Router>
     </>

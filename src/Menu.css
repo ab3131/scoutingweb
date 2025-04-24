@@ -1,0 +1,11 @@
+.websiteHeader {
+    padding: 10px;
+    text-align: center;
+    color: black;
+    font-size: 48px;
+    text-decoration: none;
+    margin-top:5px;
+}
+.websiteLink {
+    text-decoration: none;
+}
