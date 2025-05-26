@@ -1,0 +1,28 @@
+.leftboxes{
+    background-color: #69a2ff;
+    width: 40vw;  
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 1rem; /* optional: adds spacing inside the box */
+    margin-left: 3vw;
+    margin-right:3vw;
+}
+.rightboxes {
+    background-color: #fc5656;
+    width: 40vw;  
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 1rem; /* optional: adds spacing inside the box */
+    margin-left: 3vw;
+    margin-right:3vw;
+}
+.groupings{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top:5%;
+}
+.allgroupings{
+    display:flex;
+    flex-direction: column;
+}

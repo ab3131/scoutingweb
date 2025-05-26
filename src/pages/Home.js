@@ -1,15 +1,13 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Routes, useNavigate } from 'react-router-dom';
-import Button from '@mui/material/Button';
 
 function Home() {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate('/Generate');
-  };
+  
   return (
     <>
-      <Button variant="outlined" onClick={() => {handleClick()}}><strong>Generate Slides</strong></Button> 
+    <center>
+      <h2>Welcome to Team 2367's Scouting Information Generator!</h2>
+    <p>Click Match Info in the top right to begin </p>
+    </center>
 
     </>    
 
