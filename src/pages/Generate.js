@@ -154,15 +154,27 @@ setStrategySummary(formattedSummary);
     );
   };
 
-  const AlgaeBox = ({ title, teams, values, className }) => (
-    <Box className={className} sx={{ mt: 2, p: 2 }}>
-      <Typography variant="h6" fontWeight="bold" sx={{ mb: 2 }}>{title}</Typography>
-      {teams.map((teamId, idx) => (
-        <Typography key={teamId}><strong>Team {teamId}:</strong> {values[idx]}</Typography>
-      ))}
-    </Box>
-  );
-
+  const AlgaeBox = ({ title, teams, values, className }) => {
+    const parsed = values.map(val => {
+      const hasProcessor = val.includes('processor');
+      const hasBarge = val.includes('barge');
+      if (hasProcessor && hasBarge) return 'processor and barge';
+      if (hasProcessor) return 'processor';
+      if (hasBarge) return 'barge';
+      return 'none'; // blank if neither
+    });
+  
+    return (
+      <Box className={className} sx={{ mt: 2, p: 2 }}>
+        <Typography variant="h6" fontWeight="bold" sx={{ mb: 2 }}>{title}</Typography>
+        {teams.map((teamId, idx) => (
+          <Typography key={teamId}>
+            <strong>Team {teamId}:</strong> {parsed[idx]}
+          </Typography>
+        ))}
+      </Box>
+    );
+  };
   return (
     <>
       <TextField
@@ -209,7 +221,7 @@ setStrategySummary(formattedSummary);
               </div>
             </Box>
             <CapabilityGridBox title="Coral Capabilities" teams={blueTeams} values={(capabilities.blue.coral || '').split(';')} className="leftboxes" />
-            <AlgaeBox title="Algae Capabilities" teams={blueTeams} values={(capabilities.blue.algae || '').split(';')} className="leftboxes" />
+            <AlgaeBox title="Algae Mechanisms" teams={blueTeams} values={(capabilities.blue.algae || '').split(';')} className="leftboxes" />
             <ClimbGridBox title="Climb Capabilities" teams={blueTeams} values={(capabilities.blue.climb || '').split(';')} className="leftboxes" />
           </div>
 

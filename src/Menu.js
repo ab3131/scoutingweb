@@ -4,7 +4,7 @@ import './Menu.css'
 import Button from '@mui/material/Button';
 function Menu() {
   const navigate = useNavigate();
-  
+  //navigation for Generate button 
   const handleClick = () => {
     if(localStorage.getItem('username')){
       navigate('/Generate');
@@ -17,7 +17,7 @@ function Menu() {
   const handleLoginClick = () => {
     if(localStorage.getItem('username')){
       localStorage.removeItem('username');
-      navigate('/Home')
+      navigate('/')
     }
     else{
       navigate('/Login');
