@@ -32,26 +32,19 @@ function Menu() {
           <Link to = "/" className = "websiteLink">
             <h1 className = "websiteHeader">Team 2367 Scouting</h1>
           </Link>
-          <div className = "buttons">
-            <Button variant="" onClick={() => {handleClick()}}><strong>Match Info</strong></Button> 
-            <Button variant="" onClick={() => {handleLoginClick()}}><strong>Logout</strong></Button> 
-            
-          </div>
         </div>
       </>
     }
     else{
-      return <>
+      return(
+      <>
         <div className = "myheader">
           <Link to = "/" className = "websiteLink">
             <h1 className = "websiteHeader">Team 2367 Scouting</h1>
           </Link>
-          <div className = "buttons">
-            <Button variant="" onClick={() => {handleClick()}}><strong>Match Info</strong></Button> 
-            <Button variant="" onClick={() => {handleLoginClick()}}><strong>Login</strong></Button> 
-          </div>
         </div>
       </>
+      )
     }
 
   
