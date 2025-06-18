@@ -118,3 +118,21 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+.dropdown-container{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    margin-top: 2vh;
+    margin-left: 5vw;
+    gap: 2vh;
+}
+.dropdown{
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.winprobbox{
+    margin-top: 5vh;
+}

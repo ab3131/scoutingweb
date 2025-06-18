@@ -126,15 +126,15 @@ const formattedSummary = numberedSummary
   .map(s => `• ${s}`)
   .join("\n\n");
 
-setStrategySummary(formattedSummary);
+// setStrategySummary(formattedSummary);
           } else {
-            setStrategySummary('Unable to generate strategy summary.');
+            // setStrategySummary('Unable to generate strategy summary.');
           }
         } else {
-          alert('Backend error: ' + result.error);
+          // alert('Backend error: ' + result.error);
         }
       } catch (err) {
-        alert('Request failed: ' + err.message);
+        // alert('Request failed: ' + err.message);
       }
     }
   };
@@ -315,17 +315,6 @@ setStrategySummary(formattedSummary);
   };
   return (
     <>
-      <TextField
-        id="outlined-basic"
-        label="Enter match id here"
-        variant="outlined"
-        value={matchId}
-        onChange={(e) => setMatchId(e.target.value)}
-        sx={{ mr: 2 }}
-      />
-      <Button variant="outlined" onClick={handleClick}>
-        <strong>Get Match Info</strong>
-      </Button>
 
       {/* {strategySummary && (
         <Box sx={{ mt: 4, p: 3, border: '1px solid #ccc', borderRadius: '8px', backgroundColor: '#f9f9f9' }}>
@@ -362,7 +351,9 @@ setStrategySummary(formattedSummary);
 </div>
 
 
-      <WinProbBox data={winProbs}/>
+      
+      <div className="dropdown-container">
+      <div className = "dropdown">
       <FormControl sx={{ mr: 2, minWidth: 120 }}>
         <InputLabel>Year</InputLabel>
         <Select value={year} onChange={handleChange}>
@@ -373,7 +364,9 @@ setStrategySummary(formattedSummary);
       </FormControl>
 
       <Button variant="contained" onClick={handleYearSubmit}>Get Events</Button>
+      </div>
 
+      <div className = "dropdown">
       {eventList.length > 0 && (
         <FormControl sx={{ mt: 2, minWidth: 300 }}>
           <InputLabel>Event</InputLabel>
@@ -387,7 +380,8 @@ setStrategySummary(formattedSummary);
         <Button variant="contained" sx={{ mt: 2 }} onClick={handleEventSubmit}>
           Get Matches
         </Button>
-
+        </div>
+        <div className = "dropdown">
         {matchList.length > 0 && (
           <FormControl sx={{ mt: 2, minWidth: 300 }}>
             <InputLabel>Match</InputLabel>
@@ -405,9 +399,14 @@ setStrategySummary(formattedSummary);
             </Select>
           </FormControl>
         )}
-        <Button variant="contained" sx={{ mt: 2, ml: 2 }} onClick={handleClick}>
+        <Button variant="contained" onClick={handleClick}>
           Submit Selected Match
         </Button>
+      </div>
+      </div>
+      <div className = "winprobbox">
+      <WinProbBox data={winProbs}/>
+      </div>
 
       {/* <FormControl >
         <InputLabel id="demo-simple-select-label">Year</InputLabel>
