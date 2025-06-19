@@ -10,13 +10,7 @@ function Menu() {
     
   };
   const handleLoginClick = () => {
-    if(localStorage.getItem('username')){
-      localStorage.removeItem('username');
-      navigate('/')
-    }
-    else{
-      navigate('/Login');
-    }
+    navigate('/')
     
     
   };

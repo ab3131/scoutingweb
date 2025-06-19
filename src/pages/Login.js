@@ -11,18 +11,7 @@ function Login() {
   const [password, setPassword] = useState('');
   
   const handleClick = () => {
-    if(username=="arav" & password=="bansal"){
-        localStorage.setItem("username", "arav");
-        navigate('/Generate');
-
-    }
-    else if(username=="zade" & password=="lobo"){
-        localStorage.setItem("username", "zade");
-        navigate('/Generate');
-    }
-    else{
-      navigate('/Login')
-    }
+    navigate('/Generate');
     
   };
 
