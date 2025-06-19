@@ -60,9 +60,7 @@ function Generate() {
 
   const handleClick = async () => {
     const matchCode = selectedMatch || matchId;
-    if (!localStorage.getItem('username')) {
-      navigate('/Login');
-    } else if (matchId === '') {
+    if (matchId === '') {
       alert('Enter match id');
     } else {
       try {
@@ -103,41 +101,48 @@ function Generate() {
           setTeamData(combinedData);
           setCapabilities(data.capabilities);
 
-          const stratRes = await fetch('http://localhost:5050/api/strategy-summary', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ red: redSummaries, blue: blueSummaries })
-          });
+//           const stratRes = await fetch('http://localhost:5050/api/strategy-summary', {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({ red: redSummaries, blue: blueSummaries })
+//           });
 
-          const stratJson = await stratRes.json();
-          if (stratJson.success) {
-            const numberedSummary = stratJson.summary
-  .replace(/Team 1/g, redTeams[0] || '')
-  .replace(/Team 2/g, redTeams[1] || '')
-  .replace(/Team 3/g, redTeams[2] || '')
-  .replace(/Team 4/g, blueTeams[0] || '')
-  .replace(/Team 5/g, blueTeams[1] || '')
-  .replace(/Team 6/g, blueTeams[2] || '');
+//           const stratJson = await stratRes.json();
+//           if (stratJson.success) {
+//             const numberedSummary = stratJson.summary
+//   .replace(/Team 1/g, redTeams[0] || '')
+//   .replace(/Team 2/g, redTeams[1] || '')
+//   .replace(/Team 3/g, redTeams[2] || '')
+//   .replace(/Team 4/g, blueTeams[0] || '')
+//   .replace(/Team 5/g, blueTeams[1] || '')
+//   .replace(/Team 6/g, blueTeams[2] || '');
 
-const formattedSummary = numberedSummary
-  .split(/[\n\r\u2022\-]/)
-  .map(s => s.trim())
-  .filter(s => s.length > 0)
-  .map(s => `• ${s}`)
-  .join("\n\n");
+// const formattedSummary = numberedSummary
+//   .split(/[\n\r\u2022\-]/)
+//   .map(s => s.trim())
+//   .filter(s => s.length > 0)
+//   .map(s => `• ${s}`)
+//   .join("\n\n");
 
 // setStrategySummary(formattedSummary);
-          } else {
-            // setStrategySummary('Unable to generate strategy summary.');
-          }
-        } else {
-          // alert('Backend error: ' + result.error);
-        }
-      } catch (err) {
-        // alert('Request failed: ' + err.message);
+  //         } else {
+  //           // setStrategySummary('Unable to generate strategy summary.');
+  //         }
+  //       } else {
+  //         // alert('Backend error: ' + result.error);
+  //       }
+  //     } catch (err) {
+  //       // alert('Request failed: ' + err.message);
+  //     }
+  //   }
+  // };
+        };
+      }
+      catch{
+        console.log("Error fetching match data");
       }
     }
-  };
+  }
 
   const handleTeamClick = (teamId) => {
     const data = teamData[teamId];

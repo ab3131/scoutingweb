@@ -6,12 +6,7 @@ function Menu() {
   const navigate = useNavigate();
   //navigation for Generate button 
   const handleClick = () => {
-    if(localStorage.getItem('username')){
-      navigate('/Generate');
-    }
-    else{
-      navigate('/Login')
-    }
+
     
   };
   const handleLoginClick = () => {
