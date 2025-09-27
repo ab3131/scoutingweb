@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
 import Generate from './pages/Generate';
 import Menu from './Menu'
-import Login from './pages/Login'
+import React from 'react'
+
 
 function App() {
   return (
