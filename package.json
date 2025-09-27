@@ -15,7 +15,9 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.2",
     "@mui/material": "^7.3.2",
+    "@react-native-async-storage/async-storage": "^2.2.0",
     "axios": "^1.7.7",
+    "parse": "^6.1.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^6.30.1"
