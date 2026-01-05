@@ -39,7 +39,7 @@ function Generate() {
       await Promise.all(
         allTeams.map(async (teamId) => {
           try {
-            const res = await fetch(`http://localhost:5050/api/team-photo/${teamId}`);
+            const res = await fetch(`http://http://127.0.0.1:5000/api/team-photo/${teamId}`);
             const json = await res.json();
             if (json.success) {
               photos[teamId] = json.photo_url;
@@ -60,14 +60,16 @@ function Generate() {
 
   const handleClick = async () => {
     const matchCode = selectedMatch || matchId;
-    if (matchId === '') {
+    if (!matchCode) {
       alert('Enter match id');
     } else {
       try {
-        const response = await fetch('http://localhost:5050/api/match', {
+        const response = await fetch('http://127.0.0.1:5000/api/match', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ match_code: matchId.slice(9) })
+          body: JSON.stringify({
+            match_code: matchCode
+          })
 
         });
 
@@ -161,10 +163,11 @@ function Generate() {
 
   const handleYearSubmit = async () => {
     try {
-      const res = await fetch(`http://localhost:5050/api/events/${year}`);  // use your Flask server's URL
+      const res = await fetch(`http://127.0.0.1:5000/api/events/${year}`);  // use your Flask server's URL
       const data = await res.json();
       if (data.error) {
         setEventList([{ key: '', name: 'Error' }]);
+        alert("Error fetching events: " + data.error);
       } else {
         setEventList(data);  // assuming data is an array of { key, name }
       }
@@ -178,7 +181,7 @@ function Generate() {
     if (!selectedEvent) return;
   
     try {
-      const res = await fetch(`http://localhost:5050/api/matches/${selectedEvent}`);
+      const res = await fetch(`http://127.0.0.1:5000/api/matches/${selectedEvent}`);
       const data = await res.json();
   
       // Check if backend returned an error object
@@ -505,7 +508,7 @@ function Generate() {
       </div>
     )}
     <img
-      src={`http://localhost:5050/api/photo-proxy/${popupData.teamId}`}
+      src={`http://127.0.0.1:5050/api/photo-proxy/${popupData.teamId}`}
       alt="Team"
       onLoad={() => setImageLoading(false)}
       onError={(e) => {
