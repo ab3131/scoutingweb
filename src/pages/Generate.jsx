@@ -39,7 +39,7 @@ function Generate() {
       await Promise.all(
         allTeams.map(async (teamId) => {
           try {
-            const res = await fetch(`http://http://127.0.0.1:5000/api/team-photo/${teamId}`);
+            const res = await fetch(`http://127.0.0.1:5000/api/team-photo/${teamId}`);
             const json = await res.json();
             if (json.success) {
               photos[teamId] = json.photo_url;
@@ -508,7 +508,7 @@ function Generate() {
       </div>
     )}
     <img
-      src={`http://127.0.0.1:5050/api/photo-proxy/${popupData.teamId}`}
+      src={`http://127.0.0.1:5000/api/photo-proxy/${popupData.teamId}`}
       alt="Team"
       onLoad={() => setImageLoading(false)}
       onError={(e) => {
